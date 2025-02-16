@@ -41,8 +41,8 @@ package("Elos")
         assert(package:check_cxxsnippets({ test = [[
             void Test()
 			{
-                Elos::i32 = -1;
-                Elos::u32 = 0;
+                Elos::i32 i = -1;
+                Elos::u32 u = 0;
             }
         ]] }, { configs = {languages = "c++23"}, includes = "Elos/Common/StandardTypes.h"}))
     end)
