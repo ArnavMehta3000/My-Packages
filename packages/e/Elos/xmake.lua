@@ -3,6 +3,7 @@ package("Elos")
 	add_urls("https://github.com/ArnavMehta3000/Elos.git")
 	add_versions("1.0.0", "58b8065eba0fa86283d26cb73592d471b99cf32a")
 	set_license("MIT")
+	set_kind("library")
 
     add_configs("debug", { builtin = true, description = "Enable debug symbols.", default = false, type = "boolean", readonly = true })
 	add_configs("shared", { description = "Build shared library.", default = false, type = "boolean", readonly = true })
@@ -32,6 +33,8 @@ package("Elos")
 		end
 
     	import("package.tools.xmake").install(package, configs)
+
+		os.cp("include/Elos/**", package:installdir("include/Elos"))
     end)
 
 	on_test(function (package)
