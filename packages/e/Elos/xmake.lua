@@ -8,16 +8,23 @@ package("Elos")
 	add_configs("shared", { description = "Build shared library.", default = true, type = "boolean", readonly = true })
 
     on_install("windows|x64", function (package)
-    	if package:is_debug() then
-    		package:add_defines("ELOS_BUILD_DEBUG=1")
-    	else
-    		package:add_defines("ELOS_BUILD_DEBUG=0")
-    	end
-
 		package:add("links", "user32", "gdi32", "dwmapi", "shcore", "Comctl32")
 		
     	local configs = {}
-    	table.insert(configs, "--BuildShared=" .. (package:config("shared") and "y" or "n"))
+
+		if package:config("shared") then
+            configs.BuildShared = true
+        end
+
+		if package:debug() then
+            configs.mode = "debug"
+            configs.runtime = "MDd"
+			package:add("defines", "ELOS_BUILD_DEBUG=1")
+        else
+            configs.mode = "release"
+            configs.runtime = "MD"
+			package:add("defines", "ELOS_BUILD_DEBUG=0")
+        end
 
     	import("package.tools.xmake").install(package, configs)
     end)
