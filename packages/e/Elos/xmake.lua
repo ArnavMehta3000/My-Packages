@@ -15,9 +15,19 @@ package("Elos")
 
     	local configs = {}
 
-    	table.insert(configs, "--BuildShared=" .. (package::config("shared") and "y" or "n"))
+    	table.insert(configs, "--BuildShared=" .. (package:config("shared") and "y" or "n"))
 
     	import("package.tools.xmake").install(package, configs)
+    end)
+
+	on_test(function (package)
+        assert(package:check_cxxsnippets({ test = [[
+            void test() 
+			{
+                Elos::i32 = -1;
+                Elos::u32 = 0;
+            }
+        ]] }, { configs = {languages = "c++23"}, includes = "Elos/Common/StandardTypes.h"}))
     end)
 
 package_end()
