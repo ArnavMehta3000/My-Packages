@@ -34,7 +34,7 @@ package("Elos")
 
     	import("package.tools.xmake").install(package, configs)
 
-		os.cp("include/Elos/**", package:installdir("include/Elos"))
+		os.cp("include", package:installdir())
     end)
 
 	on_test(function (package)
