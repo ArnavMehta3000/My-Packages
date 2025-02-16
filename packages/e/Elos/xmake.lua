@@ -1,7 +1,7 @@
 package("Elos")
 	set_description("A colletion C++ helper classes")
 	add_urls("https://github.com/ArnavMehta3000/Elos.git")
-	add_versions("1.0.0", "5cf880513f12efaa28b7109ab96188da229b8274")
+	add_versions("1.0.0", "58b8065eba0fa86283d26cb73592d471b99cf32a")
 	set_license("MIT")
 
     add_configs("debug", { builtin = true, description = "Enable debug symbols.", default = false, type = "boolean", readonly = true })
