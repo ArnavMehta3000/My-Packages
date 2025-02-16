@@ -1,7 +1,7 @@
 package("Elos")
 	set_description("A colletion C++ helper classes")
 	add_urls("https://github.com/ArnavMehta3000/Elos.git")
-	add_versions("1.0.0", "b5f4704dc5483637a2ed78895bda53808768a28e")
+	add_versions("1.0.0", "17da36fb5ef031e7e3feb730f9ac3fe68d8bd7aa")
 	set_license("MIT")
 	set_kind("library")
 
@@ -20,11 +20,9 @@ package("Elos")
 
 		if package:config("debug") then
             configs.mode = "debug"
-            configs.runtimes = "MDd"
 			package:add("defines", "ELOS_BUILD_DEBUG=1")
         else
             configs.mode = "release"
-            configs.runtimes = "MD"
 			package:add("defines", "ELOS_BUILD_DEBUG=0")
         end
 
