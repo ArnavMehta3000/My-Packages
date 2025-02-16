@@ -1,7 +1,7 @@
 package("Elos")
 	set_description("A colletion C++ helper classes")
 	add_urls("https://github.com/ArnavMehta3000/Elos.git")
-	add_versions("1.0.0", "00cf8be31514cf4a0531e10bc2c6e48f2fefb091")
+	add_versions("1.0.0", "b5f4704dc5483637a2ed78895bda53808768a28e")
 	set_license("MIT")
 	set_kind("library")
 
@@ -33,8 +33,6 @@ package("Elos")
 		end
 
     	import("package.tools.xmake").install(package, configs, { target = "Elos" })
-
-		print(package:installdir())
     end)
 
 	on_test(function (package)
