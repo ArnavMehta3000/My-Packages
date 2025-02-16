@@ -5,10 +5,11 @@ package("Elos")
 	set_license("MIT")
 
     add_configs("debug", { builtin = true, description = "Enable debug symbols.", default = false, type = "boolean", readonly = true })
-	add_configs("shared", { description = "Build shared library.", default = true, type = "boolean", readonly = true })
+	add_configs("shared", { description = "Build shared library.", default = false, type = "boolean", readonly = true })
 
     on_install("windows|x64", function (package)
 		package:add("links", "user32", "gdi32", "dwmapi", "shcore", "Comctl32")
+		package:add("defines", "UNICODE", "_UNICODE", "NOMINMAX", "NOMCX", "NOSERVICE", "NOHELP", "WIN32_LEAN_AND_MEAN")
 		
     	local configs = {}
 
@@ -16,7 +17,7 @@ package("Elos")
             configs.BuildShared = true
         end
 
-		if package:debug() then
+		if package:config("debug") then
             configs.mode = "debug"
             configs.runtimes = "MDd"
 			package:add("defines", "ELOS_BUILD_DEBUG=1")
@@ -25,6 +26,10 @@ package("Elos")
             configs.runtimes = "MD"
 			package:add("defines", "ELOS_BUILD_DEBUG=0")
         end
+		
+		if package:config("shared") then
+			package:add("defines", "ELOS_EXPORTS")
+		end
 
     	import("package.tools.xmake").install(package, configs)
     end)
