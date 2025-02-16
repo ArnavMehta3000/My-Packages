@@ -18,11 +18,11 @@ package("Elos")
 
 		if package:debug() then
             configs.mode = "debug"
-            configs.runtime = "MDd"
+            configs.runtimes = "MDd"
 			package:add("defines", "ELOS_BUILD_DEBUG=1")
         else
             configs.mode = "release"
-            configs.runtime = "MD"
+            configs.runtimes = "MD"
 			package:add("defines", "ELOS_BUILD_DEBUG=0")
         end
 
