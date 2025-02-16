@@ -5,9 +5,6 @@ package("Elos")
 	set_license("MIT")
 	set_kind("library")
 
-    add_configs("debug", { builtin = true, description = "Enable debug symbols.", default = false, type = "boolean", readonly = true })
-	add_configs("shared", { description = "Build shared library.", default = false, type = "boolean", readonly = true })
-
     on_install("windows|x64", function (package)
 		package:add("syslinks", "user32", "gdi32", "dwmapi", "shcore", "Comctl32")
 		package:add("defines", "UNICODE", "_UNICODE", "NOMINMAX", "NOMCX", "NOSERVICE", "NOHELP", "WIN32_LEAN_AND_MEAN")
