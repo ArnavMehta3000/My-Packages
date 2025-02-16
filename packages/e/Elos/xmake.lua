@@ -15,7 +15,7 @@ package("Elos")
 
     	local configs = {}
 
-    	table.insert(configs, "--BuildShared=" .. (package::config("shared") and "y" or "n")
+    	table.insert(configs, "--BuildShared=" .. (package::config("shared") and "y" or "n"))
 
     	import("package.tools.xmake").install(package, configs)
     end)
