@@ -32,7 +32,7 @@ package("Elos")
 			package:add("defines", "ELOS_EXPORTS")
 		end
 
-    	import("package.tools.xmake").install(package, configs)
+    	import("package.tools.xmake").install(package, configs, { target = "Elos" })
 
 		print(package:installdir())
     end)
