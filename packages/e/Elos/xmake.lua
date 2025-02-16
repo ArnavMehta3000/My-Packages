@@ -1,7 +1,7 @@
 package("Elos")
 	set_description("A colletion C++ helper classes")
 	add_urls("https://github.com/ArnavMehta3000/Elos")
-	add_versions("v1.0.0", "5cf880513f12efaa28b7109ab96188da229b8274")
+	add_versions("1.0.0", "5cf880513f12efaa28b7109ab96188da229b8274")
 	set_license("MIT")
 
     add_configs("shared", { description = "Build as shared library", default = false, type = "boolean" })
