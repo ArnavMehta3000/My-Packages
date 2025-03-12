@@ -1,7 +1,7 @@
 package("Elos")
 	set_description("A colletion C++ helper classes")
 	add_urls("https://github.com/ArnavMehta3000/Elos.git")
-	add_versions("1.1.0", "400a1355fe9d149cda51f9e877baa6fd4a380d31")
+	add_versions("1.1.0", "57332c984b0a02c4dc6921583057161f14ae66d5")
 	set_license("MIT")
 	set_kind("library")
 
